@@ -1,16 +1,53 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
-	<link rel="stylesheet" href="styles.css">
+  <title>First Char Finder</title>
+  <style>
+    /* Add some basic styling for better appearance */
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+    label {
+      font-weight: bold;
+    }
+    input[type="text"], button {
+      margin: 10px;
+      padding: 5px;
+    }
+  </style>
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
+  <form>
+    <label for="inputString">Enter a string:</label>
+    <input type="text" id="inputString">
+    <button type="button" id="findButton">firstChar</button>
+  </form>
 
+  <p id="result">Result: </p>
+
+  <script>
+    document.getElementById("findButton").addEventListener("click", function() {
+      // Get the input string from the user
+      const inputString = document.getElementById("inputString").value;
+
+      // Call the firstChar function to find the first non-space character
+      const result = firstChar(inputString);
+
+      // Display the result
+      document.getElementById("result").textContent = `Result: ${result}`;
+    });
+
+    // Function to find the first non-space character
+    function firstChar(inputString) {
+      for (let i = 0; i < inputString.length; i++) {
+        if (inputString[i] !== ' ') {
+          return inputString[i];
+        }
+      }
+      return '';
+    }
+  </script>
 </body>
-
 </html>
